@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n!mpv7$7)#-_c#ivck#u)_p25%=t@+&e*t+x0e_0_mrvu0(e@v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://serri-secondo-parziale-ppm.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
