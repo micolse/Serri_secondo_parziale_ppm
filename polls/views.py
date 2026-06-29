@@ -7,8 +7,6 @@ from rest_framework.authtoken.models import Token
 from .models import Poll, Choice
 from .serializers import PollSerializer
 
-
-# --- LOGICA DEI SONDAGGI E DEI VOTI ---
 class PollViewSet(viewsets.ModelViewSet):
     queryset = Poll.objects.all()
     serializer_class = PollSerializer
@@ -45,7 +43,6 @@ class PollViewSet(viewsets.ModelViewSet):
         )
 
 
-# --- LOGICA DI REGISTRAZIONE UTENTI ---
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
 def register_user(request):
