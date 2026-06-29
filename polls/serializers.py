@@ -4,7 +4,8 @@ from .models import Poll, Choice
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ['id', 'choice_text', 'votes']
+        fields = ['id', 'poll', 'choice_text', 'votes']
+        read_only_fields = ['votes']  
 
 class PollSerializer(serializers.ModelSerializer):
     
@@ -14,4 +15,7 @@ class PollSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Poll
-        fields = ['id', 'question', 'created_by', 'created_at', 'choices']
+        fields = ['id', 'question', 'created_by', 'created_at', 'is_active','choices']
+        
+class VoteSerializer(serializers.Serializer):
+    choice_id = serializers.IntegerField()

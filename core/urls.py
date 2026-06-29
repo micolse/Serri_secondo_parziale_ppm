@@ -10,4 +10,5 @@ urlpatterns = [
     
     path('api/register/', register_user, name='register'),
     path('api/login/', obtain_auth_token, name='login'),
+    path('api-auth/', include('rest_framework.urls')),
 ]
