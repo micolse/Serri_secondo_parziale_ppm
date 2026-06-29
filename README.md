@@ -21,16 +21,47 @@ Apertura/Chiusura (POST) del sondaggio per bloccare o sbloccare le votazioni
 endpoint table:
 | Metodo | URL | Autenticazione | Ruolo | Body Richiesta (JSON) | Descrizione |
 
-| POST | `/api/login/` | No | Qualsiasi | `{"username": "...", "password": "..."}` | login, scambia credenziali con il token |
-| POST | `/api/register/` | No | Qualsiasi | `{"username": "...", "password": "..."}` | registra utente e genera token |
+| POST | `/api/login/` | No | Qualsiasi | `{"username"= "...", "password"= "..."}` | login, scambia credenziali con il token |
+| POST | `/api/register/` | No | Qualsiasi | `{"username"= "...", "password"= "..."}` | registra utente e genera token |
 | GET | `/api/polls/` | No | Qualsiasi | Vuoto | Elenca tutti i sondaggi disponibili |
-| POST | `/api/polls/` | Sì (Token) | Autenticato | `{"question": "..."}` | Crea un nuovo sondaggio (imposta l'owner) |
+| POST | `/api/polls/` | Sì (Token) | Autenticato | `{"question"= "..."}` | Crea un nuovo sondaggio (imposta l'owner) |
 | GET | `/api/polls/<id>/` | No | Qualsiasi | Vuoto | Mostra i dettagli di un singolo sondaggio |
-| PUT/PATCH | `/api/polls/<id>/` | Sì (Token) | Owner | `{"question": "..."}` | Modifica un sondaggio (solo se owner) |
+| POST | `/api/choices/` | Sì (Token) | Autenticato | `{"poll"= <id_sondaggio>, "choice_text"= "..."}` | Crea una nuova opzione di voto e la associa al sondaggio specificato tramite ID |
+| PUT/PATCH | `/api/polls/<id>/` | Sì (Token) | Owner | `{"question"= "..."}` | Modifica un sondaggio (solo se owner) |
 | DELETE | `/api/polls/<id>/` | Sì (Token) | Owner | Vuoto | Elimina un sondaggio (solo se owner) |
 | GET | `/api/polls/<id>/results/` | No | Qualsiasi | Vuoto | Restituisce i risultati dei voti aggregati |
-| POST | `/api/polls/<id>/vote/` | Sì (Token) | Autenticato | `{"choice_id": 1}` | Invia un voto per una opzione del sondaggio |
+| POST | `/api/polls/<id>/vote/` | Sì (Token) | Autenticato | `{"choice_id"= id}` | Invia un voto per una opzione del sondaggio |
 | POST | `/api/polls/<id>/toggle_status/` | Sì (Token) | Owner | Vuoto | Attiva/Disattiva il sondaggio (solo owner) |
+
+
+esempi:
+login: http POST https://serri-secondo-parziale-ppm.onrender.com/api/login/ username="admin" password="admin123"
+restituisce "token": "token number"
+
+register: http POST https://serri-secondo-parziale-ppm.onrender.com/api/register/ username="studente_test1" password="stud1123"
+restituisce "message": "utente registrato!", "token": "token number"
+
+creazione poll: http POST https://serri-secondo-parziale-ppm.onrender.com/api/polls/ question="Qual è il miglior framework per il backend?" Authorization:"Token token number"
+restituisce "choices": [],
+    "created_at": "tempo",
+    "created_by": "profilo del token",
+    "id": id dato,
+    "is_active": true,
+    "question": "Qual è il miglior framework per il backend?"
+
+creazione choice: http POST https://serri-secondo-parziale-ppm.onrender.com/api/choices/ poll=id poll  choice_text="Opzione di Test" Authorization:"Token token number"  
+restituisce "choice_text": "Opzione di Test",
+    "id": id choice dato,
+    "poll": id poll,
+    "votes": 0
+
+voto: http POST https://serri-secondo-parziale-ppm.onrender.com/api/polls/id poll/vote/ choice_id=id choice Authorization:"Token token number"
+restituisce "message": "Voto registrato con successo per: 'Opzione di Test'!"
+
+delete: http DELETE https://serri-secondo-parziale-ppm.onrender.com/api/polls/id poll/ Authorization:"Token token number"
+restituisce 204 No Content
+(se non è admin, e il poll non è suo, restituisce "detail": "You do not have permission to perform this action.")
+
 
 URL: `https://serri-secondo-parziale-ppm.onrender.com`
 
