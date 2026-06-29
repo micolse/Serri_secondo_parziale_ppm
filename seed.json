@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "username": "admin",
-      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "password": "pbkdf2_sha256$1200000$Wb4EsYkEvTwuBaItGkC4EX$SrZvWCYnogY/d/MSTptsOVhsgzLzcPSc1/zn5SzDqI4=",
       "is_superuser": true,
       "is_staff": true,
       "is_active": true,
@@ -16,7 +16,7 @@
     "pk": 2,
     "fields": {
       "username": "utente_demo1",
-      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "password": "pbkdf2_sha256$1200000$fCq0DJ8ZxQCMdK0sUq66SQ$KWtAOv1e/SfwalOaFwFCfSGZLXiqE2DD5Antv1dnHIE=",
       "is_superuser": false,
       "is_staff": false,
       "is_active": true,
@@ -28,7 +28,7 @@
     "pk": 3,
     "fields": {
       "username": "utente_demo2",
-      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "password": "pbkdf2_sha256$1200000$94VvJeGgHfsxYwuqK7CMKR$HJs3vPpn39fd7rdLBPCqRL7xgMcz3v8zg9ZehJ8KtXU=",
       "is_superuser": false,
       "is_staff": false,
       "is_active": true,
@@ -63,7 +63,7 @@
       "votes": 3
     }
   },
-  
+
   {
     "model": "polls.poll",
     "pk": 2,
