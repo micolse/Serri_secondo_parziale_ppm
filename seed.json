@@ -1,0 +1,104 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-06-29T12:00:00Z"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "utente_demo1",
+      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-06-29T12:00:00Z"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "utente_demo2",
+      "password": "pbkdf2_sha256$600000$vYg6XN77q98m$D6V8vF5M6m8f3oYgP9wX8bCgNvZ2k9oYgP9wX8bCg=",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-06-29T12:00:00Z"
+    }
+  },
+  {
+    "model": "polls.poll",
+    "pk": 1,
+    "fields": {
+      "question": "Quale framework backend preferisci?",
+      "created_by": 2,
+      "created_at": "2026-06-29T12:00:00Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 1,
+    "fields": {
+      "poll": 1,
+      "choice_text": "Django REST Framework",
+      "votes": 5
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 2,
+    "fields": {
+      "poll": 1,
+      "choice_text": "FastAPI",
+      "votes": 3
+    }
+  },
+  
+  {
+    "model": "polls.poll",
+    "pk": 2,
+    "fields": {
+      "question": "Preferisci mare o montagna?",
+      "created_by": 1,
+      "created_at": "2026-06-29T13:00:00Z",
+      "is_active": true
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 3,
+    "fields": {
+      "poll": 2,
+      "choice_text": "Mare",
+      "votes": 0
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 4,
+    "fields": {
+      "poll": 2,
+      "choice_text": "Montagna",
+      "votes": 0
+    }
+  },
+  {
+    "model": "polls.choice",
+    "pk": 5,
+    "fields": {
+      "poll": 2,
+      "choice_text": "Nessuno",
+      "votes": 0
+    }
+  }
+]
